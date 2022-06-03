@@ -16,10 +16,10 @@ Wed Jun  1 22:19:31 2022 daemon.info hostapd: wlan1: STA 28:c2:1f:xx:xx:xx IEEE 
 Wed Jun  1 22:19:32 2022 daemon.info hostapd: wlan1: STA 28:c2:1f:xx:xx:xx IEEE 802.11: deauthenticated due to inactivity (timer DEAUTH/REMOVE)
 
 To repro this:
-- Have 2 Wifi with the same bssid and pass on different band (2.4 and
+Have 2 Wifi with the same bssid and pass on different band (2.4 and
 5GHz)
-- Enable 802.11r Fast Transaction with same mobility domain
-- FT Protocol: FT over the Air
+Enable 802.11r Fast Transaction with same mobility domain
+FT Protocol: FT over the Air
 From a openwrt system issue the command (with the correct mac)
 ubus call hostapd.wlan1 wnm_disassoc_imminent '{"addr":"28:C2:1F:xx:xx:xx"}'
 Notice the log printing the errors.
